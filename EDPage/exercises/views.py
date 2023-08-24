@@ -4,13 +4,13 @@ from django.http import HttpResponse
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    categories_list = Categories.objects.all()
-    #return HttpResponse("<h1>Inicio</h1>")
-    return render(request, "index.html", {'categories': categories_list})
+    return render(request, "index.html", {})
 
 def topics_view(request, *args, **kwargs):
-    return HttpResponse("<h1>Acerca de la pagina</h1>")
+    categories_list = Categories.objects.all()
+    return render(request, "temas.html", {'categories': categories_list})
 
 
 def exercises_view(request, *args, **kwargs):
-    return HttpResponse("<h1>Acerca de la pagina</h1>")
+    categories_list = Categories.objects.all()
+    return render(request, "exercises.html", {'categories': categories_list})

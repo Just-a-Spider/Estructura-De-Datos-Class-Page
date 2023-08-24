@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estructura de Datos</title>
     <!-- Add your CSS links here -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <header>
-        <h1>Estructura de Datos B 2023-II</h1>
-
         <nav>
             <ul>
+                <li><h1>Estructura de Datos B 2023-II</h1></li>
                 <li><a href="{% url 'home' %}">Inicio</a></li>
                 <li><a href="{% url 'topics' %}">Temas del Curso</a></li>
                 <li><a href="{% url 'exercises' %}">Ejercicios</a></li>
