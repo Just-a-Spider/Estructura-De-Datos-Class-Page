@@ -10,15 +10,33 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><h1>Estructura de Datos B 2023-II</h1></li>
-                <li><a href="{% url 'inicio' %}">Inicio</a></li>
-                <li><a href="{% url 'temas' %}">Temas del Curso</a></li>
-                <li><a href="{% url 'ejercicios' %}">Ejercicios</a></li>
-                <!-- Add more navigation links if needed -->
-            </ul>
-        </nav>
+        <!--Desktop Nav-->
+        <div class="desktop-nav-container">
+            <nav>
+                <ul>
+                    <li><h1>Estructura de Datos B 2023-II</h1></li>
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'temas' %}">Temas del Curso</a></li>
+                    <li><a href="{% url 'ejercicios' %}">Ejercicios</a></li>
+                    <!-- Add more navigation links if needed -->
+                </ul>
+            </nav>
+        </div>
+        <!--Desktop Nav-->
+        <div class="mobile-nav-container">
+            <button id="openNav">&#9776;</button>
+            <div id="myNav" class="overlay">
+                <button class="closebtn" id="closeNav">&times;</button>
+                <div class="overlay-content">
+                    <ul>
+                        <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                        <li><a href="{% url 'temas' %}">Temas del Curso</a></li>
+                        <li><a href="{% url 'ejercicios' %}">Ejercicios</a></li>
+                        <!-- Add more navigation links if needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
         {% block content %}
@@ -28,5 +46,6 @@
         <!-- Add your footer content here -->
     </footer>
     <!-- Add your JavaScript links here -->
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

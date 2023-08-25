@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Welcome to the Coding Exercises Hub!</h2>
-<p>This hub provides a collection of coding exercises in various categories.</p>
-<p>Choose a category to explore exercises:</p>
+<h2>Ejercicios Organizados por Tema</h2>
+<p>Click a un tema para ver los que hay</p>
 <div class="category-grid">
     {% for category in categories %}
     <a href="{% url 'lista' category.name %}">
