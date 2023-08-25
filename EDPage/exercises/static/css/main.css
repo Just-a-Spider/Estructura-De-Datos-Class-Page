@@ -9,7 +9,7 @@ ul {
 
 /* Style the navigation bar */
 header nav {
-    background-color: #3498db; /* Light blue */
+    background-color: #3f9bd8; /* Light blue */
     padding: 10px 0;
 }
 
@@ -20,22 +20,76 @@ header nav ul {
 }
 
 header nav ul li {
-    margin-right: 20px; /* Space between links */
+    display: flex; /* Display items in a row */
+    align-items: center; /* Center items vertically */
+    margin-right: 5%; /* Space between links */
+    font-size: 22px;
 }
 
-/* Style the "Inicio" link */
+/* Style the Title */
 header nav ul li:first-child {
     margin-right: auto; /* Push to the right */
     font-size: 18px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
+/* Style all links */
 header nav ul li a {
     color: #fff; /* White text color */
     text-decoration: none;
+    padding: 10px; /* Equal padding on all sides */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth color transition */
 }
 
 /* Change link color on hover */
 header nav ul li a:hover {
-    color: #27ae60; /* Light green */
+    background-color: #27ae60; /* Light green on hover */
 }
+
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 28px;
+}
+p {
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------*/
+/* Style the category grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Gap between cards */
+    margin-top: 40px;
+}
+
+/* Style the category cards */
+.category-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card h3,p {
+    color: #fff;
+}
+
+/* Add hover effect to cards */
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------*/
+/*Style the Topics Pages*/
+

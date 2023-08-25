@@ -4,9 +4,14 @@
 <h2>Welcome to the Coding Exercises Hub!</h2>
 <p>This hub provides a collection of coding exercises in various categories.</p>
 <p>Choose a category to explore exercises:</p>
-<ul>
+<div class="category-grid">
     {% for category in categories %}
-    <li>{{ category.name }}</li>
+    <a href="{% url 'categoria' category.name %}">
+        <div class="category-card">
+            <h3>{{ category.name }}</h3>
+            <p>{{ category.summary }}</p>
+        </div>
+    </a>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

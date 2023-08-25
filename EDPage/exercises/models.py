@@ -3,11 +3,12 @@ from django.db import models
 # Create your models here.
 
 class Categories(models.Model):
-    cat_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=15)
+    summary = models.TextField(default='resumen')
+    content = models.TextField(default='texto')
 
     def __str__(self):
-        return f"ID: {self.cat_id}, Name: {self.name}"
+        return f"Name: {self.name}, Summary: {self.summary}, Content: {self.content}"
 
 
 class Exercises(models.Model):

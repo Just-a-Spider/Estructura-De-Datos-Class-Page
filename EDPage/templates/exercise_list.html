@@ -3,12 +3,12 @@
 {% block content %}
 <h2>Welcome to the Coding Exercises Hub!</h2>
 <p>This hub provides a collection of coding exercises in various categories.</p>
-<p>Choose a category to explore exercises:</p>
+<p>Choose a cat to explore exercises:</p>
 <div class="category-grid">
-    {% for category in categories %}
-    <a href="{% url 'lista' category.name %}">
+    {% for id in exercise %}
+    <a href="{% url 'ejemplo' category.name id.title %}">
         <div class="category-card">
-            <h3>{{ category.name }}</h3>
+            <h3>{{ id.title }}</h3>
         </div>
     </a>
     {% endfor %}

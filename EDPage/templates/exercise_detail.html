@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="exercise">
+    <h2>{{ exercise.title }}</h2>
+    <p>{{ exercise.desc }}</p>
+    <pre>{{ exercise.cpp_snippet }}</pre>
+</div>
+{% endblock %}
