@@ -13,11 +13,12 @@
     <header>
         <!--Desktop Nav-->
         <div class="desktop-nav-container">
+            <img src="{% static 'img/logo.png' %}">
             <nav>
                 <ul>
                     <li><h1>Estructura de Datos B 2023-II</h1></li>
                     <li><a href="{% url 'inicio' %}">Inicio</a></li>
-                    <li><a href="{% url 'temas' %}">Temas del Curso</a></li>
+                    <li><a href="{% url 'temas' %}">Temas</a></li>
                     <li><a href="{% url 'ejercicios' %}">Ejercicios</a></li>
                     <!-- Add more navigation links if needed -->
                 </ul>
@@ -26,6 +27,9 @@
         <!--Mobile Nav-->
         <div class="mobile-nav-container">
             <button id="openNav">&#9776;</button>
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}">
+            </div>
             <div id="myNav" class="overlay">
                 <button class="closebtn" id="closeNav">&times;</button>
                 <div class="overlay-content">

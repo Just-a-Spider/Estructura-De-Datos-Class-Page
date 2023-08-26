@@ -1,9 +1,5 @@
 /*--------------------------------------------------------*/
 /*Style the Exercises Pages*/
-.exercise {
-    margin: 10px;
-}
-
 .description {
     margin-bottom: 20px;
 }
@@ -37,6 +33,6 @@
 }
 
 .snippet pre {
-    margin: 0;
+    margin: 10px 0 20px 0;
     overflow-x: auto; /* Allow horizontal scrolling */
 }

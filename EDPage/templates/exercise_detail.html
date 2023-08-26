@@ -2,12 +2,13 @@
 {% load static%}
 
 {% block content %}
-<div class="exercise">
-    <p>Al final tendrán la opción de cambiar de Python a C++ y viceversa</p>
+
+<p>Al final tendrán la opción de cambiar de Python a C++ y viceversa</p>
     <div class="description">
         <h2>{{ exercise.title }}</h2>
         <p>{{ exercise.desc }}</p>
     </div>
+<div class="exercise">
     <div class="snippet" id="codeSnippets">
         <div class="snippet-toggle">
             <button id="pySnippetBtn" class="active">Python</button>
