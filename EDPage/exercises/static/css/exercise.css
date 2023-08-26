@@ -1,0 +1,42 @@
+/*--------------------------------------------------------*/
+/*Style the Exercises Pages*/
+.exercise {
+    margin: 10px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+.snippet-toggle {
+    text-align: left;
+    background-color: rgb(70, 130, 165);
+    margin-bottom: 10px;
+    border-bottom: 3px solid #ddd;
+}
+
+.snippet-toggle button {
+    background-color: rgb(70, 130, 165);
+    border: none;
+    padding: 8px 16px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.snippet-toggle button.active {
+    background-color: lightslategrey;
+    color: white;
+}
+
+.snippet {
+    border: 3px solid #ddd;
+    padding: 0%;
+    background-color: lightslategrey;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+.snippet pre {
+    margin: 0;
+    overflow-x: auto; /* Allow horizontal scrolling */
+}

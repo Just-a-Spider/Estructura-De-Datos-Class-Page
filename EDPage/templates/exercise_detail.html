@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
+{% load static%}
 
 {% block content %}
 <div class="exercise">
-    <p>Al final tendrán la opcion de cambiar de python a c++ y viceversa</p>
-    <h2>{{ exercise.title }}</h2>
-    <p>{{ exercise.desc }}</p>
-    <pre>{{ exercise.py_snippet }}</pre>
+    <p>Al final tendrán la opción de cambiar de Python a C++ y viceversa</p>
+    <div class="description">
+        <h2>{{ exercise.title }}</h2>
+        <p>{{ exercise.desc }}</p>
+    </div>
+    <div class="snippet" id="codeSnippets">
+        <div class="snippet-toggle">
+            <button id="pySnippetBtn" class="active">Python</button>
+            <button id="cppSnippetBtn">C++</button>
+        </div>
+        <pre id="pySnippet" class="active">{{ exercise.py_snippet }}</pre>
+        <pre id="cppSnippet" class="inactive">{{ exercise.cpp_snippet }}</pre>
+    </div>
 </div>
+<script src="{% static 'js/snippet.js' %}"></script>
 {% endblock %}
