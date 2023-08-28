@@ -1,4 +1,9 @@
 /*--------------------------------------------------------*/
+@font-face {
+    font-family: 'MonoCraft'; /* Give a unique name to the font */
+    src: url('/static/fonts/Monocraft.otf') format('opentype');
+    /* You can also specify other font formats for cross-browser compatibility */
+}
 /*Style the Exercises Pages*/
 .description {
     margin-bottom: 20px;
@@ -34,5 +39,6 @@
 
 .snippet pre {
     margin: 10px 0 20px 0;
+    font-family: 'MonoCraft', sans-serif;
     overflow-x: auto; /* Allow horizontal scrolling */
 }

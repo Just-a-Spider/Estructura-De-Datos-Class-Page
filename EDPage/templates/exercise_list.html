@@ -3,13 +3,15 @@
 {% block content %}
 <h2>Lista de ejercicios</h2>
 <p>Click a uno para verlo con detalle</p>
-<div class="category-grid">
-    {% for id in exercise %}
-    <a href="{% url 'ejemplo' category.name id.title %}">
-        <div class="category-card">
-            <h3>{{ id.title }}</h3>
-        </div>
-    </a>
-    {% endfor %}
+<div class="category-grid-container">
+    <div class="category-grid">
+        {% for id in exercise %}
+        <a href="{% url 'ejemplo' category.name id.title %}">
+            <div class="category-card">
+                <h3>{{ id.title }}</h3>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
