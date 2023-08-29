@@ -2,23 +2,21 @@
 
 const openNavButton = document.getElementById("openNav");
 const closeNavButton = document.getElementById("closeNav");
+const navBar = document.getElementById("myNav")
+const menuText = document.getElementById("menuText")
 
-// Open sidebar
-document.getElementById("openNav").addEventListener("click", function() {
-    document.getElementById("myNav").style.width = "270px";
-});
-
-// Close sidebar
-document.getElementById("closeNav").addEventListener("click", function() {
-    document.getElementById("myNav").style.width = "0";
-});
-
-// Hide the openNav button when the navigation is open
-closeNavButton.addEventListener("click", function() {
-    openNavButton.style.display = "block";
-});
-
-// Show the openNav button when the navigation is closed
+// Open the navBar
 openNavButton.addEventListener("click", function() {
+    navBar.style.width = "55%";
     openNavButton.style.display = "none";
+    closeNavButton.style.display = "block";
+    menuText.style.display = "block";
+});
+
+// Close the navBar
+closeNavButton.addEventListener("click", function() {
+    closeNavButton.style.display = "none";
+    menuText.style.display = "none";
+    navBar.style.width = "0";
+    openNavButton.style.display = "block";
 });

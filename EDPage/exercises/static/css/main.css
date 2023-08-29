@@ -168,7 +168,7 @@ a {
         left: 0;
         background-color: rgb(70, 130, 165) ;
         overflow-x: hidden;
-        transition: 0.3s;
+        transition: all 0.4s ease;
     }
     
     #myNav a {
@@ -183,9 +183,8 @@ a {
         position: absolute;
         background-color: rgb(70, 130, 165);
         top: 27px;
-        left: 10px;
+        left: 20px;
         font-size: 30px;
-        z-index: 999;
     }
     
     #closeNav {
@@ -193,18 +192,44 @@ a {
         top: 27px;
         left: 20px;
         font-size: 30px;
+        transition: all 0.5s ease;
+    }
+
+    .closebtn-container {
+        position: relative;
+        height: 60px;
+        padding: 10px 20px 24px 10px;
+        border-bottom: 3px solid #ddd;
+    }
+
+    .contenido-text {
+        position: absolute;
+        top: 30px;
+        right: 60px;
+        font-size: 30px;
+        color: #333;
     }
 
     .overlay-content{
-        margin-top: 80px;
-        margin-left: 20px;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .overlay-content ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .overlay-content li {
+        border-bottom: 2px solid #ddd;
+        padding: 10px;
     }
 
     /* Mobile layout for category cards */
     .category-grid-container {
         max-width: 100%;
         padding: 0 ;
-        margin: 0 auto; /* Center the container horizontally */
+        margin: 0 auto; 
     }
     .category-grid {
         display: grid;

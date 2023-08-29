@@ -31,7 +31,10 @@
                 <img src="{% static 'img/logo.png' %}">
             </div>
             <div id="myNav" class="overlay">
-                <button class="closebtn" id="closeNav">&times;</button>
+                <div class="closebtn-container">
+                    <button class="closebtn" id="closeNav">&times;</button>
+                    <span class="contenido-text" id="menuText">Menú</span>
+                </div>
                 <div class="overlay-content">
                     <ul>
                         <li><a href="{% url 'inicio' %}">Inicio</a></li>
