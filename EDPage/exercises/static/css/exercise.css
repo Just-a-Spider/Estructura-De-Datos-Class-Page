@@ -12,8 +12,7 @@
 .snippet-toggle {
     text-align: left;
     background-color: rgb(70, 130, 165);
-    margin-bottom: 10px;
-    border-bottom: 3px solid #2EBAA1;
+    margin-bottom: 0;
 }
 
 .snippet-toggle button {
@@ -25,7 +24,7 @@
 }
 
 .snippet-toggle button.active {
-    background-color: rgb(70, 130, 165);
+    background-color: rgb(28, 32, 35);
     color: #2EBAA1;
 }
 
@@ -36,10 +35,11 @@
     border-radius: 4px;
 }
 
-.snippet pre {
-    margin: 10px 0 20px 0;
-    font-family: 'MonoCraft', sans-serif;
-    padding: 10px;
-    overflow-x: auto; /* Allow horizontal scrolling */
-    color: #fff;
+#pySnippet, #cppSnippet {
+    margin: 0;
+}
+
+code{
+    font-family: MonoCraft;
+    font-size: 75%;
 }
