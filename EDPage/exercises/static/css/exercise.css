@@ -29,6 +29,10 @@
     color: white;
 }
 
+.icon-c {
+    background-image: url('https://api.iconify.design/logos/python.svg?height=20') no-repeat center center / contain;
+}
+
 .snippet {
     border: 3px solid #ddd;
     padding: 0%;
