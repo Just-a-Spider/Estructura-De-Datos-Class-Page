@@ -13,36 +13,33 @@
     text-align: left;
     background-color: rgb(70, 130, 165);
     margin-bottom: 10px;
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid #2EBAA1;
 }
 
 .snippet-toggle button {
     background-color: rgb(70, 130, 165);
     border: none;
-    padding: 8px 16px;
+    padding: 8px;
     margin: 0;
     cursor: pointer;
 }
 
 .snippet-toggle button.active {
-    background-color: lightslategrey;
-    color: white;
-}
-
-.icon-c {
-    background-image: url('https://api.iconify.design/logos/python.svg?height=20') no-repeat center center / contain;
+    background-color: rgb(70, 130, 165);
+    color: #2EBAA1;
 }
 
 .snippet {
-    border: 3px solid #ddd;
+    border: 3px solid #2EBAA1;
     padding: 0%;
-    background-color: lightslategrey;
+    background-color: rgb(70, 130, 165);
     border-radius: 4px;
-    font-family: Consolas, monospace;
 }
 
 .snippet pre {
     margin: 10px 0 20px 0;
     font-family: 'MonoCraft', sans-serif;
+    padding: 10px;
     overflow-x: auto; /* Allow horizontal scrolling */
+    color: #fff;
 }
