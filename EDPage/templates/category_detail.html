@@ -6,7 +6,7 @@
 <p>{{ category.content }}</p>
 
 <h2>Ejemplo:</h2>
-<h3>{{ exercise.title }}</h3>
+<h2>{{ exercise.title }}</h2>
 <p>{{ exercise.desc }}</p>
 
 <div class="exercise">
@@ -19,8 +19,8 @@
                 <iconify-icon icon="file-icons:c" style="font-size: 30px;"></iconify-icon>
             </button>
         </div>
-        <pre id="pySnippet" class="active">{{ exercise.py_snippet }}</pre>
-        <pre id="cppSnippet" class="inactive">{{ exercise.cpp_snippet }}</pre>
+        <pre id="pySnippet" class="active"><code class="language-python">{{ exercise.py_snippet }}</code></pre>
+        <pre id="cppSnippet" class="inactive"><code class="language-cpp">{{ exercise.cpp_snippet }}</code></pre>
     </div>
 </div>
 <script src="{% static 'js/snippet.js' %}"></script>

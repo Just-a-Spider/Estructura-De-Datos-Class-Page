@@ -1,16 +1,25 @@
 /* main.css */
 
 /* Reset default margin and padding for lists */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: #ffffff;
-    border-top: solid 10px #2EBAA1;
-	border-bottom: solid 10px #2EBAA1;
     margin: 0;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 main{
     padding: 20px;
+    flex-grow: 1;
+    border-top: solid 10px #2EBAA1;
+	border-bottom: solid 10px #2EBAA1;
 }
 
 ul {
@@ -19,18 +28,17 @@ ul {
     margin: 0;
 }
 
-h2, h3, p{
+h2, p{
     color: #333;
+    margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 160%;
 }
-h3 {
-    font-size: 28px;
-}
+
 p {
-    font-size: 20px;
+    font-size: 120%;
 }
 a {
     text-decoration: none;
@@ -42,7 +50,7 @@ a {
     flex-direction: column;
     justify-content: center;    
     background-color: #2EBAA1;
-    height: 85%;
+    height: 120px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -53,10 +61,12 @@ a {
 .category-card h3{
     font-size: 120%;
     color: #fff;
+    margin: 10px;
 }
 .category-card p{
     font-size: 100%;
-    color: #fff
+    color: #fff;
+    margin: 10px;
 }
 
 /* Add hover effect to cards */
@@ -185,6 +195,7 @@ a {
         top: 27px;
         left: 20px;
         font-size: 30px;
+        width: 40px;
     }
     
     #closeNav {
@@ -193,6 +204,7 @@ a {
         left: 20px;
         font-size: 30px;
         transition: all 0.5s ease;
+        width: 35px;
     }
 
     .closebtn-container {

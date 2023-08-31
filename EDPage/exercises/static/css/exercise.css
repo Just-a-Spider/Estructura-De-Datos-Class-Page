@@ -21,6 +21,7 @@
     padding: 8px;
     margin: 0;
     cursor: pointer;
+    transition: none;
 }
 
 .snippet-toggle button.active {
@@ -41,5 +42,5 @@
 
 code{
     font-family: MonoCraft;
-    font-size: 75%;
+    font-size: 80%;
 }
