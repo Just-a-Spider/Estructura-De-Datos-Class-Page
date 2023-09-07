@@ -21,9 +21,9 @@ from exercises.views import home_view, topics_view, exercises_view, category_det
 
 urlpatterns = [
     path('', home_view, name='inicio'),
-    path('temas', topics_view, name='temas'),
+    path('temas/', topics_view, name='temas'),
     path('temas/<str:category_name>/', category_detail, name='categoria'),
-    path('ejercicios', exercises_view, name='ejercicios'),
+    path('ejercicios/', exercises_view, name='ejercicios'),
     path('ejercicios/<str:category_name>/', exercise_list, name='lista'),
     path('ejercicios/<str:category_name>/<str:exer_title>/', exercise_detail, name='ejemplo'),
     path('admin/', admin.site.urls),

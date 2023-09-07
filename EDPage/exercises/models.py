@@ -8,7 +8,7 @@ class Categories(models.Model):
     content = models.TextField(default='texto')
 
     def __str__(self):
-        return f"Name: {self.name}, Summary: {self.summary}, Content: {self.content}"
+        return f"Name: {self.name}, Summary: {self.summary}"
 
 
 class Exercises(models.Model):
@@ -19,4 +19,4 @@ class Exercises(models.Model):
     py_snippet = models.TextField()
 
     def __str__(self):
-        return f"Category: {self.category.name}, Title: {self.title}, Description: {self.desc}, Cpp Code: {self.cpp_snippet}, Py Code: {self.py_snippet}"
+        return f"Category: {self.category.name}, Title: {self.title}"
