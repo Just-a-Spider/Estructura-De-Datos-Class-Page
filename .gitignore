@@ -1,3 +1,5 @@
 /env
 /.vscode
-__pycache__/
+/EDPage/EDPage/__pycache/
+/EDPage/exercises/__pycache/
+/EDPage/exercises/migrations/__pycache/
