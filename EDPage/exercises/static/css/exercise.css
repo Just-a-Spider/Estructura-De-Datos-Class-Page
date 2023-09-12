@@ -11,12 +11,12 @@
 
 .snippet-toggle {
     text-align: left;
-    background-color: rgb(70, 130, 165);
+    background-color: #183D3D;
     margin-bottom: 0;
 }
 
 .snippet-toggle button {
-    background-color: rgb(70, 130, 165);
+    background-color: #183D3D;
     border: none;
     padding: 8px;
     margin: 0;
@@ -26,13 +26,13 @@
 
 .snippet-toggle button.active {
     background-color: rgb(28, 32, 35);
-    color: #2EBAA1;
+    color: #93B1A6;
 }
 
 .snippet {
-    border: 3px solid #2EBAA1;
+    border: 3px solid #93B1A6;
     padding: 0%;
-    background-color: rgb(70, 130, 165);
+    background-color: #183D3D;
     border-radius: 4px;
 }
 
@@ -42,5 +42,6 @@
 
 code{
     font-family: MonoCraft;
+    font-weight: bolder;
     font-size: 80%;
 }

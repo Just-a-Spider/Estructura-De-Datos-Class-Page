@@ -20,3 +20,13 @@ closeNavButton.addEventListener("click", function() {
     navBar.style.width = "0";
     openNavButton.style.display = "block";
 });
+
+// Close the navBar
+closeNavButton.addEventListener("click", closeMenu);
+
+// Close the navBar when clicking outside of it
+document.addEventListener('click', function(event) {
+    if (navBar.style.width !== "0" && !navBar.contains(event.target) && event.target !== openNavButton) {
+        closeMenu();
+    }
+});
