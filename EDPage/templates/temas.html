@@ -7,7 +7,7 @@
     <a href="{% url 'categoria' category.name %}">
         <div class="category-card">
             <h3>{{ category.name }}</h3>
-            <p>{{ category.summary }}</p>
+            <h1>{{ category.icon | safe }}</h1>
         </div>
     </a>
     {% endfor %}
