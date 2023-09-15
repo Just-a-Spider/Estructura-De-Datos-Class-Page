@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>No se diseñar así que por partes nomás</h2>
-<p>Pagina de inicio</p>
-<p>Iré agrgando cosas a medida que se me ocurran</p>
+<div class="categText">
+    <h2>Diferencias entre C++ y Python</h2>
+</div>
+<div class="category-grid">
+    {% for method in methods %}
+    <a href="{% url 'diferencias' method.func %}">
+        <div class="category-card">
+            <h3>{{ method.func }}</h3>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

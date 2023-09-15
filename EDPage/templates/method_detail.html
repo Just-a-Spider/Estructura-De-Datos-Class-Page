@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="categText">
+    <h2>{{ method.func }}</h2>
+    <p class="themeContext">{{ method.detail }}</p>
+    <ul class="steps">
+        {% for item in steps %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="examText">
+    <div class="exercise">
+        <div class="snippet" id="codeSnippets">
+            <div class="snippet-toggle">
+                <button id="pySnippetBtn" class="active">
+                    <iconify-icon icon="fontisto:python" style="font-size: 30px;"></iconify-icon>
+                </button>
+                <button id="cppSnippetBtn">
+                    <iconify-icon icon="file-icons:c" style="font-size: 30px;"></iconify-icon>
+                </button>
+            </div>
+            <pre id="pySnippet" class="active"><code class="language-python">{{ method.py_snip }}</code></pre>
+            <pre id="cppSnippet" class="inactive"><code class="language-cpp">{{ method.cpp_snip }}</code></pre>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/snippet.js' %}"></script>    
+{% endblock %}

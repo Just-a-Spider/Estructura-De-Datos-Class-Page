@@ -1,6 +1,6 @@
 import random
 from django.shortcuts import render, get_object_or_404
-from .models import Categories, Exercises
+from .models import Categories, Exercises, Methods
 
 # Extract elements of the models.descriptions
 import re
@@ -25,12 +25,18 @@ def parse_description(description):
 #-------------------------------------------------------------------------------
 # Home Views.
 def home_view(request):
-    return render(request, "index.html", {})
+    method_list = Methods.objects.all()
+    return render(request, "index.html", 
+                  {'methods':method_list})
+def differences(request, method_name):
+    method = get_object_or_404(Methods, func=method_name)
+    return render(request, 'method_detail.html',
+                  {'method': method})
 #-------------------------------------------------------------------------------
 # Themes Views.
 def topics_view(request):
     categories_list = Categories.objects.all()
-    return render(request, "temas.html", 
+    return render(request, 'categories.html', 
                   {'categories': categories_list})
 
 def category_detail(request, category_name):
