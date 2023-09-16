@@ -27,3 +27,6 @@ class Methods(models.Model):
     detail = models.TextField()
     py_snip = models.TextField()
     cpp_snip = models.TextField()
+
+    def __str__(self):
+        return f'Theme: {self.func}'
