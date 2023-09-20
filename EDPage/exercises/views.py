@@ -67,3 +67,6 @@ def exercise_detail(request, category_name, exer_title):
     return render(request, 'exercise_detail.html', 
                   {'category':category_name,'exercise':exercise, 'text':text, 'objectives':objectives})
 #--------------------------------------------------------------------------------
+# VSCode Instalation and Config Views
+def vscode(request):
+    return render(request, 'vscode.html')
