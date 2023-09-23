@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="categText">
+    <h2>Diferencias entre C++ y Python</h2>
+</div>
+<div class="category-grid">
+    {% for method in methods %}
+    <a href="{% url 'diferencias' method.func %}">
+        <div class="category-card">
+            <h3>{{ method.func }}</h3>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

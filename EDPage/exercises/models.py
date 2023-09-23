@@ -21,3 +21,12 @@ class Exercises(models.Model):
 
     def __str__(self):
         return f"Category: {self.category.name}, Title: {self.title}"
+    
+class Methods(models.Model):
+    func = models.CharField(max_length=25)
+    detail = models.TextField()
+    py_snip = models.TextField()
+    cpp_snip = models.TextField()
+
+    def __str__(self):
+        return f'Theme: {self.func}'

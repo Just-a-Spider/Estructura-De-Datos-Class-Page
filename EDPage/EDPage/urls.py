@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from exercises.views import home_view, topics_view, exercises_view, category_detail, exercise_list, exercise_detail
+from exercises.views import home_view, topics_view, exercises_view, category_detail, exercise_list, exercise_detail, differences, vscode
 
 urlpatterns = [
     path('', home_view, name='inicio'),
+    path('diferencias/<str:method_name>', differences, name = 'diferencias' ),
     path('temas/', topics_view, name='temas'),
     path('temas/<str:category_name>/', category_detail, name='categoria'),
     path('ejercicios/', exercises_view, name='ejercicios'),
     path('ejercicios/<str:category_name>/', exercise_list, name='lista'),
     path('ejercicios/<str:category_name>/<str:exer_title>/', exercise_detail, name='ejemplo'),
+    path('vscode/', vscode, name= 'instalacion'),
     path('admin/', admin.site.urls),
 ]
