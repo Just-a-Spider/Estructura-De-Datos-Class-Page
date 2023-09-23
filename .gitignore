@@ -3,3 +3,4 @@
 /EDPage/EDPage/__pycache__/
 /EDPage/exercises/__pycache__/
 /EDPage/exercises/migrations/
+db.sqlite3
