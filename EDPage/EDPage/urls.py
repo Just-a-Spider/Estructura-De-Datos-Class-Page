@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from exercises.views import home_view, topics_view, exercises_view, category_detail, exercise_list, exercise_detail, differences, vscode
+from exercises.views import *
 
 urlpatterns = [
     path('', home_view, name='inicio'),
