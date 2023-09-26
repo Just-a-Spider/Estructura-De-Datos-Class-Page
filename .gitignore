@@ -1,10 +1,4 @@
 /env
 /.vscode
-/EDPage/EDPage/__pycache__/
-/EDPage/exercises/__pycache__/
-<<<<<<< HEAD
-/EDPage/exercises/migrations/
-db.sqlite3
-=======
-/EDPage/exercises/migrations/
->>>>>>> 920fb8b (Added migrations to ignore)
+__pycache__/
+migrations/
