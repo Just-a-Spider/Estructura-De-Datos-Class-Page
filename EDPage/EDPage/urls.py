@@ -4,7 +4,7 @@ from django.urls import path
 from exercises.views import *
 
 urlpatterns = [
-    path('', DifferencesView.as_view(), name='inicio'),
+    path('', HomeView.as_view(), name='inicio'),
     path('datos/', TypesView.as_view(), name='tipos'),
     path('datos/<str:type_name>/', TypeDetailView.as_view(), name='tipos_detail'),
     path('diferencias/', DifferencesView.as_view(), name='diferencia'),
