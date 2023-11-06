@@ -23,7 +23,6 @@ urlpatterns = [
     path('', differences, name='inicio'),
     path('datos/', types, name='tipos'),
     path('datos/<str:type_name>/', type_detail, name='tipos_detail'),
-    path('run-code/', run_code, name='run_code'),
     path('diferencias/', differences, name='diferencia'),
     path('diferencias/<str:method_name>', differences_view, name = 'diferencias_detail' ),
     path('temas/', topics_view, name='temas'),

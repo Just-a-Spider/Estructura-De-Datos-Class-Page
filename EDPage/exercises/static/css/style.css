@@ -84,6 +84,7 @@ p {
     font-size: 120%;
     font-family: 'Ubuntu', sans-serif;
     white-space: pre-line;
+    text-align: justify;
 }
 a {
     text-decoration: none;

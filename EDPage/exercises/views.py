@@ -1,13 +1,7 @@
 import random
 from django.shortcuts import render, get_object_or_404
 from .models import Categories, Exercises, Methods, Types
-
-# For the code Tester
-from django.http import JsonResponse
-from subprocess import Popen, PIPE
-import sys
-import json
-
+#-------------------------------------------------------------------------------
 # Extract elements of the models.descriptions
 import re
 def parse_description(description):
@@ -83,24 +77,3 @@ def exercise_detail(request, category_name, exer_title):
     return render(request, 'exercise_detail.html', 
                   {'category':category_name,'exercise':exercise, 'text':text, 'objectives':objectives})
 #--------------------------------------------------------------------------------
-# Code Tester
-def run_code(request):
-    if request.method == 'POST':
-        data = json.loads(request.body.decode('utf-8'))
-        code = data.get('code')
-        language = data.get('language')
-
-        if language == 'python':
-            process = Popen([sys.executable, "-c", code], stdout=PIPE, stderr=PIPE)
-        elif language == 'cpp':
-            with open('temp.cpp', 'w') as file:
-                file.write(code)
-            process = Popen(["g++", "temp.cpp", "-o", "temp", "&&", "./temp"], stdout=PIPE, stderr=PIPE)
-        else:
-            return JsonResponse({'error': 'Unsupported language'}, status=400)
-
-        stdout, stderr = process.communicate()
-
-        return JsonResponse({'output': stdout.decode('utf-8')})
-
-    return JsonResponse({'error': 'Invalid request'}, status=400)
