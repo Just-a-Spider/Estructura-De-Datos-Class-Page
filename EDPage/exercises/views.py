@@ -1,18 +1,21 @@
 import random
 from django.shortcuts import render, get_object_or_404
-from .models import Categories, Exercises, Methods
+from .models import Categories, Exercises, Methods, Types
+
+# For the code Tester
+from django.http import JsonResponse
+from subprocess import Popen, PIPE
+import sys
+import json
 
 # Extract elements of the models.descriptions
 import re
-
 def parse_description(description):
     # Split the description into paragraphs
     paragraphs = description.split('\n')
-
     # Initialize variables to store the content and list elements
     content_element = ""
     list_element = []
-
     # Iterate through the paragraphs
     for paragraph in paragraphs:
         # Check if the paragraph starts with a digit followed by a period
@@ -20,17 +23,30 @@ def parse_description(description):
             list_element.append(paragraph)
         else:
             content_element += paragraph + "\n"
-
     return content_element.strip(), list_element
 #-------------------------------------------------------------------------------
 # Home Views.
-def home_view(request):
+def home(request):
+    return render(request, 'home.html')
+#-------------------------------------------------------------------------------
+# Types Views.
+def types(request):
+    type_list = Types.objects.all()
+    return render(request, 'types.html',
+                  {'tipos': type_list})
+def type_detail(request, type_name):
+    type = get_object_or_404(Types, name=type_name)
+    return render(request, 'type_detail.html',
+                  {'type': type})
+#-------------------------------------------------------------------------------
+# Differences Views.
+def differences(request):
     method_list = Methods.objects.all()
-    return render(request, "index.html", 
+    return render(request, "differences.html", 
                   {'methods':method_list})
-def differences(request, method_name):
+def differences_view(request, method_name):
     method = get_object_or_404(Methods, func=method_name)
-    return render(request, 'method_detail.html',
+    return render(request, 'differences_detail.html',
                   {'method': method})
 #-------------------------------------------------------------------------------
 # Themes Views.
@@ -67,6 +83,24 @@ def exercise_detail(request, category_name, exer_title):
     return render(request, 'exercise_detail.html', 
                   {'category':category_name,'exercise':exercise, 'text':text, 'objectives':objectives})
 #--------------------------------------------------------------------------------
-# VSCode Instalation and Config Views
-def vscode(request):
-    return render(request, 'vscode.html')
+# Code Tester
+def run_code(request):
+    if request.method == 'POST':
+        data = json.loads(request.body.decode('utf-8'))
+        code = data.get('code')
+        language = data.get('language')
+
+        if language == 'python':
+            process = Popen([sys.executable, "-c", code], stdout=PIPE, stderr=PIPE)
+        elif language == 'cpp':
+            with open('temp.cpp', 'w') as file:
+                file.write(code)
+            process = Popen(["g++", "temp.cpp", "-o", "temp", "&&", "./temp"], stdout=PIPE, stderr=PIPE)
+        else:
+            return JsonResponse({'error': 'Unsupported language'}, status=400)
+
+        stdout, stderr = process.communicate()
+
+        return JsonResponse({'output': stdout.decode('utf-8')})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)

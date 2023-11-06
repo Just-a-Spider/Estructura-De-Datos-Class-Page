@@ -20,13 +20,16 @@ from django.urls import path
 from exercises.views import *
 
 urlpatterns = [
-    path('', home_view, name='inicio'),
-    path('diferencias/<str:method_name>', differences, name = 'diferencias' ),
+    path('', differences, name='inicio'),
+    path('datos/', types, name='tipos'),
+    path('datos/<str:type_name>/', type_detail, name='tipos_detail'),
+    path('run-code/', run_code, name='run_code'),
+    path('diferencias/', differences, name='diferencia'),
+    path('diferencias/<str:method_name>', differences_view, name = 'diferencias_detail' ),
     path('temas/', topics_view, name='temas'),
     path('temas/<str:category_name>/', category_detail, name='categoria'),
     path('ejercicios/', exercises_view, name='ejercicios'),
     path('ejercicios/<str:category_name>/', exercise_list, name='lista'),
     path('ejercicios/<str:category_name>/<str:exer_title>/', exercise_detail, name='ejemplo'),
-    path('vscode/', vscode, name= 'instalacion'),
     path('admin/', admin.site.urls),
 ]

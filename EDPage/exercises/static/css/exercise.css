@@ -45,3 +45,8 @@ code{
     font-weight: bolder;
     font-size: 80%;
 }
+
+iframe {
+    height: 500px;
+    border: none;
+}

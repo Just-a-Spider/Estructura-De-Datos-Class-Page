@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="categText">
+    <h2>Tipos de Datos</h2>
+</div>
+<div class="category-grid">
+    {% for tipo in tipos %}
+    <a href="{% url 'tipos_detail' tipo.name %}">
+        <div class="category-card"> 
+            <h3>{{ tipo.name }}</h3>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

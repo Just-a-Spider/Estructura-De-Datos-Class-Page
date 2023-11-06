@@ -12,15 +12,20 @@
 <div class="exercise">
     <div class="snippet" id="codeSnippets">
         <div class="snippet-toggle">
-            <button id="pySnippetBtn" class="active">
-                <iconify-icon icon="fontisto:python" style="font-size: 30px;"></iconify-icon>
-            </button>
-            <button id="cppSnippetBtn">
+            <button id="cppSnippetBtn" class="active">
                 <iconify-icon icon="file-icons:c" style="font-size: 30px;"></iconify-icon>
             </button>
+            <button id="pySnippetBtn">
+                <iconify-icon icon="fontisto:python" style="font-size: 30px;"></iconify-icon>
+            </button>
+            <!-- Add a "Try the code" button -->
+            <button id="tryCode">
+                Probar
+            </button>
         </div>
-        <pre id="pySnippet" class="active"><code class="language-python">{{ exercise.py_snippet }}</code></pre>
-        <pre id="cppSnippet" class="inactive"><code class="language-cpp">{{ exercise.cpp_snippet }}</code></pre>
+        <pre id="cppSnippet" class="active"><code class="language-cpp">{{ exercise.cpp_snippet }}</code></pre>
+        <pre id="pySnippet" class="inactive"><code class="language-python">{{ exercise.py_snippet }}</code></pre>
     </div>
+    <div id="output" width="100%" height="500"></div>
 </div>
 <script src="{% static 'js/snippet.js' %}"></script>

@@ -63,13 +63,19 @@ ul {
 
 
 /*-------------------------------------------------------*/
-h2, p{
-    color: #FAF0E6;
+h2, h3, p{
+    color: #FFFFFF;
     margin-bottom: 20px;
 }
 
-h2 {
+h2{
     font-size: 160%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6;
+}
+
+h3{
+    font-size: 140%;
     font-family: 'Ubuntu', sans-serif;
     color: #93B1A6;
 }
