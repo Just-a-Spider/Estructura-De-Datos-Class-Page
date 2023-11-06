@@ -23,7 +23,6 @@ def get_category_and_exercise(category_name, exer_title=None):
         exercise = get_object_or_404(Exercises, title=exer_title)
         return category, exercise
     return category, None
-
 # ------------------- Views -------------------
 # Home page
 class HomeView(View):
