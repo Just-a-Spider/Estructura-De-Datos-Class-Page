@@ -38,22 +38,33 @@ def execute_code(code, language, input_data):
             child = pexpect.spawn('./program')
         case _:
             return 'Unsupported language'
-    child.sendline(input_data)
-    child.expect(pexpect.EOF)
-    return child.before.decode()
-
+    
+    while True:
+        try:
+            index = child.expect(['Input:', pexpect.EOF])  # Wait for the script to output 'Input:' or end
+            if index == 0:  # If the script output 'Input:'
+                if input_data:
+                    child.sendline(input_data)  # Send the input
+                    input_data = None  # Clear the input data
+                else:
+                    return 'Input required'  # Return 'Input required' if there's no input data
+            else:  # If the script ended
+                return child.before.decode()  # Return the output of the script
+        except pexpect.TIMEOUT:  # If the script doesn't output anything for a while
+            return 'Input required'  # Return 'Input required'
 @csrf_exempt
 def execute_code_view(request):
     if request.method == 'POST':
         code = request.POST.get('code')
         language = request.POST.get('lang')
         input_data = request.POST.get('input')
-        if input_data is None:
-            input_data = ''
-        if code is None or language is None:
-            return JsonResponse({'error': 'code or language is missing'})
         result = execute_code(code, language, input_data)
-        return JsonResponse({'result': result})
+        if result == 'Input required':
+            return JsonResponse({'result': 'Input required'})
+        else:
+            return JsonResponse({'result': result})
+    else:
+        return JsonResponse({'result': 'Invalid request'})
 # ------------------- Views -------------------
 # Home page
 class HomeView(View):
