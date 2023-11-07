@@ -28,34 +28,31 @@ def get_category_and_exercise(category_name, exer_title=None):
         return category, exercise
     return category, None
 # To get the code running
-def execute_code(code, language):
+def execute_code(code, language, input_data):
     match language:
         case 'python':
-            print('Python')
-            process = subprocess.Popen(['python3', '-c', code], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            child = pexpect.spawn('python3 -c "{}"'.format(code.replace('"', '\\"')))
         case 'cpp':
-            print('C++')
-            # Compile the C++ code first
             compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             compile_process.communicate(input=code.encode())
-            # Then run the compiled program
-            process = subprocess.Popen(['./program'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            child = pexpect.spawn('./program')
         case _:
             return 'Unsupported language'
-    stdout, stderr = process.communicate()
-    return stdout.decode() + stderr.decode()
+    child.sendline(input_data)
+    child.expect(pexpect.EOF)
+    return child.before.decode()
+
 @csrf_exempt
 def execute_code_view(request):
     if request.method == 'POST':
         code = request.POST.get('code')
         language = request.POST.get('lang')
-        if code is None:
-            return JsonResponse({'error': 'code is missing'})
-        if language is None:
-            return JsonResponse({'error': 'language is missing'})
-        print('Code received')
-        result = execute_code(code, language)
-        print('Code executed')
+        input_data = request.POST.get('input')
+        if input_data is None:
+            input_data = ''
+        if code is None or language is None:
+            return JsonResponse({'error': 'code or language is missing'})
+        result = execute_code(code, language, input_data)
         return JsonResponse({'result': result})
 # ------------------- Views -------------------
 # Home page

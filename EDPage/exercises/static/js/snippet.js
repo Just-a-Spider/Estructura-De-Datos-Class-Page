@@ -20,11 +20,28 @@ pySnippetBtn.addEventListener("click", function () {
       method: 'POST',
       data: {
         code: pyCode.textContent,
-        lang: 'python'
+        lang: 'python',
+        input: $('#input').val()
       },
       success: function(data) {
-        console.log('Ejecutando Python');
-        consoleDiv.innerHTML = data.result;
+        if (data.result == 'Input required') {
+          $.ajax({
+            url: '/ejecutar/',
+            method: 'POST',
+            data: {
+              code: pyCode.textContent,
+              lang: 'python',
+              input: prompt('Input required')
+            },
+            success: function(data) {
+              console.log('Ejecutando Python');
+              consoleDiv.innerHTML = data.result;
+            }
+          });
+        }else{
+          console.log('Ejecutando Python');
+          consoleDiv.innerHTML = data.result;
+        }
       }
     });
       
@@ -41,11 +58,28 @@ cppSnippetBtn.addEventListener("click", function () {
       method: 'POST',
       data: {
         code: cppCode.textContent,
-        lang: 'cpp'
+        lang: 'cpp',
+        input: $('#input').val()
       },
       success: function(data) {
-        console.log('Ejecutando C++');
-        consoleDiv.innerHTML = data.result;
+        if (data.result == 'Input required') {
+          $.ajax({
+            url: '/ejecutar/',
+            method: 'POST',
+            data: {
+              code: cppCode.textContent,
+              lang: 'cpp',
+              input: prompt('Input required')
+            },
+            success: function(data) {
+              console.log('Ejecutando C++');
+              consoleDiv.innerHTML = data.result;
+            }
+          });
+        }else{
+          console.log('Ejecutando C++');
+          consoleDiv.innerHTML = data.result;
+        }
       }
     });
 });
