@@ -4,6 +4,13 @@ from django.views import View
 from .models import Categories, Exercises, Methods, Types
 import re
 
+from django.http import JsonResponse
+from channels.generic.websocket import WebsocketConsumer
+import json
+import subprocess
+import os
+import sys
+import tempfile
 # ------------------- Helper functions -------------------
 # To get a content list based on the description
 def parse_description(description):
@@ -23,6 +30,58 @@ def get_category_and_exercise(category_name, exer_title=None):
         exercise = get_object_or_404(Exercises, title=exer_title)
         return category, exercise
     return category, None
+# To get the code running
+class CodeRunnerConsumer(WebsocketConsumer):
+    def connect(self):
+        self.accept()
+        self.process = None
+
+    def disconnect(self, close_code):
+        if self.process:
+            self.process.kill()
+
+    def receive(self, text_data):
+        data = json.loads(text_data)
+        if 'code' in data and 'type' in data:
+            if data['type'] == 'python':
+                self.process = subprocess.Popen(
+                    [sys.executable, '-c', data['code']],
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    stdin=subprocess.PIPE,
+                    text=True
+                )
+            elif data['type'] == 'cpp':
+                with tempfile.NamedTemporaryFile(suffix=".cpp", delete=False) as temp:
+                    temp.write(data['code'].encode())
+                    temp.flush()
+                    compile_process = subprocess.Popen(
+                        ['g++', temp.name, '-o', temp.name + '.out'],
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        text=True
+                    )
+                    compile_out, compile_err = compile_process.communicate()
+                    if compile_process.returncode != 0:
+                        self.send(json.dumps({'stdout': compile_out, 'stderr': compile_err}))
+                        return
+                    self.process = subprocess.Popen(
+                        [temp.name + '.out'],
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        stdin=subprocess.PIPE,
+                        text=True
+                    )
+            self.send_output()
+        elif 'input' in data and self.process:
+            self.process.stdin.write(data['input'] + '\n')
+            self.process.stdin.flush()
+            self.send_output()
+
+    def send_output(self):
+        stdout = self.process.stdout.readline()
+        stderr = self.process.stderr.readline()
+        self.send(json.dumps({'stdout': stdout, 'stderr': stderr}))
 # ------------------- Views -------------------
 # Home page
 class HomeView(View):
