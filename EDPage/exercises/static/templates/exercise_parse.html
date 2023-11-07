@@ -19,8 +19,8 @@
                 <iconify-icon icon="fontisto:python" style="font-size: 30px;"></iconify-icon>
             </button>
         </div>
-        <pre id="cppSnippet" class="active"><code class="language-cpp">{{ exercise.cpp_snippet }}</code></pre>
-        <pre id="pySnippet" class="inactive"><code class="language-python">{{ exercise.py_snippet }}</code></pre>
+        <pre id="cppSnippet" class="active"><code class="language-cpp" id="cppCode">{{ exercise.cpp_snippet }}</code></pre>
+        <pre id="pySnippet" class="inactive"><code class="language-python" id="pyCode">{{ exercise.py_snippet }}</code></pre>
+        <div id="console">Aqui va la Consola</div>
     </div>
 </div>
-<script src="{% static 'js/snippet.js' %}"></script>

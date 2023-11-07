@@ -14,5 +14,6 @@ urlpatterns = [
     path('ejercicios/', ExercisesView.as_view(), name='ejercicios'),
     path('ejercicios/<str:category_name>/', ExerciseListView.as_view(), name='lista'),
     path('ejercicios/<str:category_name>/<str:exer_title>/', ExerciseDetailView.as_view(), name='ejemplo'),
+    path('ejecutar/', execute_code_view, name='ejecutar'),
     path('admin/', admin.site.urls),
 ]

@@ -2,22 +2,9 @@ const pySnippetBtn = document.getElementById("pySnippetBtn");
 const cppSnippetBtn = document.getElementById("cppSnippetBtn");
 const pySnippet = document.getElementById("pySnippet");
 const cppSnippet = document.getElementById("cppSnippet");
-
-// Create a WebSocket connection
-var socket = new WebSocket('ws://localhost:8000/ws/code_run/');
-
-socket.onopen = function(e) {
-  console.log("[open] Connection established");
-};
-
-socket.onmessage = function(event) {
-  console.log(`[message] Data received from server: ${event.data}`);
-};
-
-socket.onerror = function(error) {
-  console.log(`[error] ${error.message}`);
-};
-
+const consoleDiv = document.getElementById("console");
+const pyCode = document.getElementById("pyCode");
+const cppCode = document.getElementById("cppCode");
 // Initially hide the Python snippet
 pySnippet.style.display = "none";
 pySnippetBtn.classList.remove("active");
@@ -27,6 +14,20 @@ pySnippetBtn.addEventListener("click", function () {
     cppSnippet.style.display = "none";
     pySnippetBtn.classList.add("active");
     cppSnippetBtn.classList.remove("active");
+    // Send AJAX request to get the console output
+    $.ajax({
+      url: '/ejecutar/',
+      method: 'POST',
+      data: {
+        code: pyCode.value,
+        lang: 'python'
+      },
+      success: function(data) {
+        console.log(data);
+        consoleDiv.innerHTML = data;
+      }
+    });
+      
 });
 
 cppSnippetBtn.addEventListener("click", function () {
@@ -34,16 +35,17 @@ cppSnippetBtn.addEventListener("click", function () {
     cppSnippet.style.display = "block";
     pySnippetBtn.classList.remove("active");
     cppSnippetBtn.classList.add("active");
+    // Send AJAX request to get the console output
+    $.ajax({
+      url: '/ejecutar/',
+      method: 'POST',
+      data: {
+        code: cppCode.value,
+        lang: 'cpp'
+      },
+      success: function(data) {
+        console.log(data);
+        consoleDiv.innerHTML = data;
+      }
+    });
 });
-
-function sendActiveSnippet() {
-    const activeSnippet = document.querySelector(".active-snippet");
-    const snippetType = activeSnippet.id === "pySnippet" ? "python" : "cpp";
-    const snippetCode = activeSnippet.textContent.trim();
-
-    // Send the snippet data to the server over the WebSocket connection
-    socket.send(JSON.stringify({
-        type: snippetType,
-        code: snippetCode,
-    }));
-}
