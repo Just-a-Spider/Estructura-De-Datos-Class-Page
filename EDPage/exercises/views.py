@@ -7,6 +7,7 @@ import re
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import subprocess
+import pexpect
 # ------------------- Helper functions -------------------
 # To get a content list based on the description
 def parse_description(description):
@@ -28,16 +29,19 @@ def get_category_and_exercise(category_name, exer_title=None):
     return category, None
 # To get the code running
 def execute_code(code, language):
-    if language == 'python':
-        process = subprocess.Popen(['python3', '-c', code], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    elif language == 'cpp':
-        # Compile the C++ code first
-        compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        compile_process.communicate(input=code.encode())
-        # Then run the compiled program
-        process = subprocess.Popen(['./program'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    else:
-        return 'Unsupported language'
+    match language:
+        case 'python':
+            print('Python')
+            process = subprocess.Popen(['python3', '-c', code], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        case 'cpp':
+            print('C++')
+            # Compile the C++ code first
+            compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            compile_process.communicate(input=code.encode())
+            # Then run the compiled program
+            process = subprocess.Popen(['./program'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        case _:
+            return 'Unsupported language'
     stdout, stderr = process.communicate()
     return stdout.decode() + stderr.decode()
 @csrf_exempt
@@ -49,7 +53,9 @@ def execute_code_view(request):
             return JsonResponse({'error': 'code is missing'})
         if language is None:
             return JsonResponse({'error': 'language is missing'})
+        print('Code received')
         result = execute_code(code, language)
+        print('Code executed')
         return JsonResponse({'result': result})
 # ------------------- Views -------------------
 # Home page
