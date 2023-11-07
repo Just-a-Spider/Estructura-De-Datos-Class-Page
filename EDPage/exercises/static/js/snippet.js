@@ -31,7 +31,7 @@ pySnippetBtn.addEventListener("click", function () {
             data: {
               code: pyCode.textContent,
               lang: 'python',
-              input: prompt('Input required')
+              input: prompt('Se necesita un input')
             },
             success: function(data) {
               console.log('Ejecutando Python');
@@ -69,7 +69,7 @@ cppSnippetBtn.addEventListener("click", function () {
             data: {
               code: cppCode.textContent,
               lang: 'cpp',
-              input: prompt('Input required')
+              input: prompt('Se necesita un input')
             },
             success: function(data) {
               console.log('Ejecutando C++');
