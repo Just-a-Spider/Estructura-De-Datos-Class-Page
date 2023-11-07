@@ -29,16 +29,17 @@ def get_category_and_exercise(category_name, exer_title=None):
 # To get the code running
 def execute_code(code, language):
     if language == 'python':
-        proccess = subprocess.Popen(['python3', 'c', code], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(['python3', '-c', code], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     elif language == 'cpp':
-        # Compile and run the C++ code
-        # This is just a placeholder. You'll need to replace this with your actual C++ execution code.
-        process = subprocess.Popen(['g++', '-o', 'program', code], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # Compile the C++ code first
+        compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        compile_process.communicate(input=code.encode())
+        # Then run the compiled program
         process = subprocess.Popen(['./program'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     else:
         return 'Unsupported language'
     stdout, stderr = process.communicate()
-    return stdout.decode('utf-8') if stdout else stderr.decode('utf-8')
+    return stdout.decode() + stderr.decode()
 @csrf_exempt
 def execute_code_view(request):
     if request.method == 'POST':

@@ -19,12 +19,12 @@ pySnippetBtn.addEventListener("click", function () {
       url: '/ejecutar/',
       method: 'POST',
       data: {
-        code: pyCode.value,
+        code: pyCode.textContent,
         lang: 'python'
       },
       success: function(data) {
-        console.log(data);
-        consoleDiv.innerHTML = data;
+        console.log('Ejecutando Python');
+        consoleDiv.innerHTML = data.result;
       }
     });
       
@@ -40,12 +40,12 @@ cppSnippetBtn.addEventListener("click", function () {
       url: '/ejecutar/',
       method: 'POST',
       data: {
-        code: cppCode.value,
+        code: cppCode.textContent,
         lang: 'cpp'
       },
       success: function(data) {
-        console.log(data);
-        consoleDiv.innerHTML = data;
+        console.log('Ejecutando C++');
+        consoleDiv.innerHTML = data.result;
       }
     });
 });
