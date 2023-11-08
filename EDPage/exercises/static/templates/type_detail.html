@@ -5,6 +5,7 @@
     <h2>{{ type.name }} {{ type.traduc }}</h2>
     <p class="themeContext">{{ type.content|safe}}</p>
     {% if type.hasSubtypes %}
+    <h3><br>Datos Abstractos Vistos en Clase</h3>
         <div class="category-grid">
             {% for subtype in subtypes %}
             <a href="{% url 'subtipos_detail' type.name subtype.name %}">
