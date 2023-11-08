@@ -33,7 +33,9 @@ def execute_code(code, language, input_data):
         case 'python':
             child = pexpect.spawn('python3 -c "{}"'.format(code.replace('"', '\\"')))
         case 'cpp':
-            compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            compile_process = subprocess.Popen(['g++', '-o', 'program', '-x', 'c++', '-'], 
+                                               stdin=subprocess.PIPE, stdout=subprocess.PIPE, 
+                                               stderr=subprocess.PIPE)
             compile_process.communicate(input=code.encode())
             child = pexpect.spawn('./program')
         case _:

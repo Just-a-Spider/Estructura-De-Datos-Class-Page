@@ -15,6 +15,8 @@ class Subtypes(models.Model):
     traduc = models.CharField(max_length=25, default='traduccion')
     content = models.TextField(default='texto')
     type = models.ForeignKey(Types, on_delete=models.CASCADE)
+    py_snippet = models.TextField(default='texto')
+    cpp_snippet = models.TextField(default='texto')
     def __str__(self):
         return f"Subtipo: {self.name}"
 

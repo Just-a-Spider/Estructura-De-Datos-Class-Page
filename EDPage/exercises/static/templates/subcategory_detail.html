@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
 <div class="categText">
-    <h1>Tipos de Datos</h1>
-    <h2>{{ subtype.name }} {{ subtype.traduc }}</h2>
-    <p class="themeContext">{{ type.content }}</p>
-    {% if type.hasSubtypes %}
-        <div class="category-grid">
-            {% for subtype in subtypes %}
-            <a href="{% url 'subtipo_detail' subtype.name %}">
-                <div class="category-card"> 
-                    <h3>{{ subtype.name }}</h3>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    {% endif %}
-</div>  
+    <h1>{{ subcategory.name }}</h1>
+    <p class="themeContext">{{ textCat }}</p>
+    <ul class="steps">
+        {% for item in steps %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="examText">
+    <h2>Ejemplo</h2>
+    {% include 'exercise_parse.html' %}
+</div>
 {% endblock %}
