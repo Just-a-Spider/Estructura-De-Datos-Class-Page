@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Ejercicios Organizados por Tema</h2>
+<h1>Ejercicios Organizados por Tema</h1>
 <div class="category-grid">
     {% for category in categories %}
     <a href="{% url 'lista' category.name %}">

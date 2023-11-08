@@ -60,9 +60,15 @@ ul {
 
 
 /*-------------------------------------------------------*/
-h2, h3, p{
+h1, h2, h3, p{
     color: #FFFFFF;
     margin-bottom: 20px;
+}
+
+h1{
+    font-size: 180%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6;
 }
 
 h2{

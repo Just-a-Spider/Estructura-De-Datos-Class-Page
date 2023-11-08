@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="categText">
-    <h2>{{ category.name }}</h2>
+    <h1>{{ category.name }}</h1>
     <p class="themeContext">{{ textCat }}</p>
     <ul class="steps">
         {% for item in steps %}
@@ -10,7 +10,22 @@
         {% endfor %}
     </ul>
 </div>
+{% if category.hasSubcategories %}
+<h2>Algoritmos Vistos en Clase</h2>
+<div class="category-grid">
+    {% for subcategory in subcategories %}
+    <a href="{% url 'subcategoria' category.name subcategory.name %}">
+        <div class="category-card"> 
+            <h3>{{ subcategory.name }}</h3>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+<br>
+{% else %}
 <div class="examText">
+    <h2>Ejemplo</h2>
     {% include 'exercise_parse.html' %}
 </div>
+{% endif %}
 {% endblock %}

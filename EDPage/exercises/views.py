@@ -1,7 +1,7 @@
 import random
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import Categories, Exercises, Methods, Types
+from .models import Categories, Exercises, Methods, Types, Subcategories, Subtypes
 import re
 
 from django.http import JsonResponse
@@ -79,7 +79,15 @@ class TypesView(View):
 class TypeDetailView(View):
     def get(self, request, type_name):
         type = get_object_or_404(Types, name=type_name)
-        return render(request, 'type_detail.html', {'type': type})
+        subtypes = Subtypes.objects.filter(type=type)
+        return render(request, 'type_detail.html', {'type': type, 
+                                                    'subtypes': subtypes})
+class SubTypeDetailView(View):
+    def get(self, request, type_name, subtype_name):
+        type = get_object_or_404(Types, name=type_name)
+        subtype = get_object_or_404(Subtypes, name=subtype_name)
+        return render(request, 'subtype_detail.html', {'type': type, 
+                                                       'subtype': subtype})
 #----------------------------------------------
 # Differences
 class DifferencesView(View):
@@ -103,7 +111,29 @@ class CategoryDetailView(View):
         random_exercise = random.choice(exercise)
         textExam, objectives = parse_description(random_exercise.desc)
         textCat, steps = parse_description(category.content)
-        return render(request, 'category_detail.html', {'category': category, 'exercise': random_exercise,'textCat':textCat, 'steps':steps, 'text':textExam, 'objectives':objectives})
+        subcategories = Subcategories.objects.filter(category=category)
+        return render(request, 'category_detail.html', {'category': category, 
+                                                        'exercise': random_exercise,
+                                                        'textCat':textCat, 
+                                                        'steps':steps, 
+                                                        'text':textExam, 
+                                                        'objectives':objectives,
+                                                        'subcategories': subcategories})
+class SubcategoriesDetailView(View):
+    def get(self, request, category_name, subcategory_name):
+        category, _ = get_category_and_exercise(category_name)
+        subcategory = get_object_or_404(Subcategories, name=subcategory_name)
+        exercise = Exercises.objects.filter(category=category, subcategoty=subcategory)
+        random_exercise = random.choice(exercise)
+        textExam, objectives = parse_description(random_exercise.desc)
+        textCat, steps = parse_description(subcategory.content)
+        return render(request, 'subcategory_detail.html', {'category': category, 
+                                                           'subcategory': subcategory, 
+                                                           'exercise': random_exercise,
+                                                           'textCat':textCat, 
+                                                           'steps':steps, 
+                                                           'text':textExam, 
+                                                           'objectives':objectives})
 #----------------------------------------------
 # Exercises
 class ExercisesView(View):
@@ -114,9 +144,13 @@ class ExerciseListView(View):
     def get(self, request, category_name):
         category, _ = get_category_and_exercise(category_name)
         exercise = Exercises.objects.filter(category=category)
-        return render(request, 'exercise_list.html', {'category': category, 'exercise': exercise})
+        return render(request, 'exercise_list.html', {'category': category, 
+                                                      'exercise': exercise})
 class ExerciseDetailView(View):
     def get(self, request, category_name, exer_title):
         category, exercise = get_category_and_exercise(category_name, exer_title)
         text, objectives = parse_description(exercise.desc)
-        return render(request, 'exercise_detail.html', {'category':category_name,'exercise':exercise, 'text':text, 'objectives':objectives})
+        return render(request, 'exercise_detail.html', {'category':category_name,
+                                                        'exercise':exercise, 
+                                                        'text':text, 
+                                                        'objectives':objectives})

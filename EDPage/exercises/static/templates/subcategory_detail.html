@@ -2,12 +2,13 @@
 {% load static %}
 {% block content %}
 <div class="categText">
-    <h2>{{ type.name }} {{ type.traduc }}</h2>
-    <p class="themeContext">{{ type.content|safe}}</p>
+    <h1>Tipos de Datos</h1>
+    <h2>{{ subtype.name }} {{ subtype.traduc }}</h2>
+    <p class="themeContext">{{ type.content }}</p>
     {% if type.hasSubtypes %}
         <div class="category-grid">
             {% for subtype in subtypes %}
-            <a href="{% url 'subtipos_detail' type.name subtype.name %}">
+            <a href="{% url 'subtipo_detail' subtype.name %}">
                 <div class="category-card"> 
                     <h3>{{ subtype.name }}</h3>
                 </div>
