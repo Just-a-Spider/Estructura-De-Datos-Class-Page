@@ -3,7 +3,7 @@
 {% block content %}
 <div class="categText">
     <h1>{{ subtype.name }}</h1>
-    <p class="themeContext">{{ subtype.content }}</p>
+    <p class="themeContext">{{ subtype.content|safe }}</p>
     <ul class="steps">
         {% for item in steps %}
             <li>{{ item }}</li>
