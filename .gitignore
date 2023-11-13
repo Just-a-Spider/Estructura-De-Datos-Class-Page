@@ -1,6 +1,5 @@
-/env
 /.vscode
 __pycache__/
 migrations/
-program
 /venv
+
