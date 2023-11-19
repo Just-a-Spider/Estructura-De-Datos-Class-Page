@@ -25,14 +25,55 @@ body{
 main{
     padding: 20px;
     flex-grow: 1;
-    border-top: solid 10px #5C8374;
-	border-bottom: solid 10px #5C8374;
+    border-top: solid 1em #5C8374;
+}
+
+footer {
+    background-color: #5C8374;
+    text-align: center;
+    color: #fff;
+    height: 1em;
+    padding: 0.2em;
+}
+
+footer iconify-icon{
+    margin: 0 10px 0 10px;
+    font-size: 0.8em;
 }
 
 ul {
     list-style: none;
 }
 
+.madeby {
+    margin-top: 60%;
+    font-size: 1em;
+}
+.madeby ul, h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1em;
+}
+.madeby li {
+    font-weight: 'bolder';
+    font-family: 'Monocraft';
+    color : #FAF0E6;
+}
+.monotext {
+    font-family: 'Monocraft';
+    font-size: 1em;
+}
+.madeby img, .madeby iconify-icon {
+    vertical-align: middle;
+}
+.madeby img{
+    width: 1.5em;
+    height: 1.5em;
+}
+.madeby iconify-icon{
+    margin: 0 10px 0 10px;
+    font-size: 1.2em;
+}
 /*-------------------------------------------------------*/
 /* Style the list container */
 .steps {

@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
 {% block content %}
 <div class="categText">
-    <h1>Estructura de Datos 2023 - 2</h1>
+    <h1>Estructura de Datos</h1>
+    <p>Página de la clase del semestre 2023 - 2 de la Universidad de Huánuco<br>
+        Pensada para la vista en celulares. Esta página contiene información relevante al curso como:
+        Tipos de datos, diferencias entre C++ y Python, temas y ejercicios
+    </p>
+    <br>
+</div>
+<div class="madeby">
+    <h3 class="monotext">Desarrollada con</h3>
+    <ul>
+        <li>Django <iconify-icon icon="skill-icons:django"></iconify-icon>
+        </li>
+        <li>PostgreSQL<iconify-icon icon="devicon:postgresql"></iconify-icon>
+        </li>
+    </ul>
+    <br>
+    <h3 class="monotext">Por</h3>
+    <ul>
+        <li>Andre Argandoña
+            <img src="{% static 'img/jas.png' %}">
+        </li>
+    </ul>
 </div>
 {% endblock %}

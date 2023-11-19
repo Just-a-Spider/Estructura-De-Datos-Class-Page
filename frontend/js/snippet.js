@@ -14,37 +14,6 @@ pySnippetBtn.addEventListener("click", function () {
     cppSnippet.style.display = "none";
     pySnippetBtn.classList.add("active");
     cppSnippetBtn.classList.remove("active");
-    // Send AJAX request to get the console output
-    $.ajax({
-      url: '/ejecutar/',
-      method: 'POST',
-      data: {
-        code: pyCode.textContent,
-        lang: 'python',
-        input: $('#input').val()
-      },
-      success: function(data) {
-        if (data.result == 'Input required') {
-          $.ajax({
-            url: '/ejecutar/',
-            method: 'POST',
-            data: {
-              code: pyCode.textContent,
-              lang: 'python',
-              input: prompt('Se necesita un input')
-            },
-            success: function(data) {
-              console.log('Ejecutando Python');
-              consoleDiv.innerHTML = data.result;
-            }
-          });
-        }else{
-          console.log('Ejecutando Python');
-          consoleDiv.innerHTML = data.result;
-        }
-      }
-    });
-      
 });
 
 cppSnippetBtn.addEventListener("click", function () {
@@ -52,34 +21,4 @@ cppSnippetBtn.addEventListener("click", function () {
     cppSnippet.style.display = "block";
     pySnippetBtn.classList.remove("active");
     cppSnippetBtn.classList.add("active");
-    // Send AJAX request to get the console output
-    $.ajax({
-      url: '/ejecutar/',
-      method: 'POST',
-      data: {
-        code: cppCode.textContent,
-        lang: 'cpp',
-        input: $('#input').val()
-      },
-      success: function(data) {
-        if (data.result == 'Input required') {
-          $.ajax({
-            url: '/ejecutar/',
-            method: 'POST',
-            data: {
-              code: cppCode.textContent,
-              lang: 'cpp',
-              input: prompt('Se necesita un input')
-            },
-            success: function(data) {
-              console.log('Ejecutando C++');
-              consoleDiv.innerHTML = data.result;
-            }
-          });
-        }else{
-          console.log('Ejecutando C++');
-          consoleDiv.innerHTML = data.result;
-        }
-      }
-    });
 });
