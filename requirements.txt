@@ -8,3 +8,4 @@ psycopg2==2.9.9
 ptyprocess==0.7.0
 sqlparse==0.4.4
 typing_extensions==4.8.0
+whitenoise==6.6.0
