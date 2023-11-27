@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -11,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-l$3rjv0!%u39i!q)vc8imyeoyz83l(2%d=5!e^%$vvl93isaw-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True')=='True'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'estructura.serveo.net', '.ngrok.io', '.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://test-7f24.onrender.com', '.ngrok.io', '.ngrok-free.app']
 
 # Application definition
 
@@ -61,16 +63,24 @@ WSGI_APPLICATION = 'EDPage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EDPageDB',
-        'USER': 'postgres',
-        'PASSWORD': '0116',
-        'HOST': 'localhost',
-        'PORT': '5432',
+if not DEBUG:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL')
+        )
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'EDPageDB',
+            'USER': 'postgres',
+            'PASSWORD': '0116',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
