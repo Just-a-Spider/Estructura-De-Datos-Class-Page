@@ -9,5 +9,4 @@ pip install -r requirements.txt
 python backend/manage.py makemigrations exercises 
 python backend/manage.py migrate
 python backend/manage.py collectstatic --noinput
-
-cd backend
+python backend/manage.py loaddata whole.json
