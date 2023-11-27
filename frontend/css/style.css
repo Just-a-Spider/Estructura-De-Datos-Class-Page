@@ -22,10 +22,42 @@ body{
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-main{
+#this-one{
     padding: 20px;
     flex-grow: 1;
     border-top: solid 1em #5C8374 !important;
+}
+
+#this-one h1, h2, h3, p{
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
+#this-one h1{
+    font-size: 180%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+    margin-bottom: 20px;
+}
+
+#this-one h2{
+    font-size: 160%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+}
+
+#this-one h3{
+    font-size: 140%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+}
+
+#this-one p {
+    font-size: 120%;
+    font-family: 'Ubuntu', sans-serif;
+    white-space: pre-line;
+    text-align: justify;
+    color: #FFFFFF !important;
 }
 
 footer {
@@ -101,38 +133,8 @@ ul {
 
 
 /*-------------------------------------------------------*/
-h1, h2, h3, p{
-    color: #FFFFFF;
-    margin-top: 0;
-}
 
-h1{
-    font-size: 180%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-    margin-bottom: 20px;
-}
-
-h2{
-    font-size: 160%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-}
-
-h3{
-    font-size: 140%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-}
-
-p {
-    font-size: 120%;
-    font-family: 'Ubuntu', sans-serif;
-    white-space: pre-line;
-    text-align: justify;
-    color: #FFFFFF !important;
-}
-a {
+#this-one a {
     text-decoration: none;
 }
 
@@ -151,93 +153,93 @@ a {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.category-card h3{
+#this-one .category-card h3{
     font-size: 110%;
     font-family: 'Dosis', sans-serif;
     color: #fff;
     margin: 10px 10px 2px 10px;
 }
 
-.category-card h1{
+#this-one .category-card h1{
     font-size: 200%;
     color: #fff;
     margin: 15px 10px 2px 10px;
 }
 
-.category-card-ex h3{
+#this-one .category-card-ex h3{
     font-size: 100%;
     font-family: 'Dosis', sans-serif;
     color: #fff;
     margin: 10px 10px 2px 10px;
 }
-.category-card p{
+#this-one .category-card p{
     font-size: 80%;
     color: #fff;
     margin: 2px 10px 10px 10px;
 }
 
 /* Add hover effect to cards */
-.category-card:hover {
+#this-one .category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.category-grid {
+#this-one .category-grid {
     display: grid;
     grid-template-rows: auto;
     grid-gap: 20px;
 }
 @media (min-width: 1400px){
-    .category-grid {
+    #this-one .category-grid {
         grid-template-columns: repeat(4, minmax(30vh, 1fr));
     }
 }
 @media (max-width: 1399px){
-    .category-grid {
+    #this-one .category-grid {
         grid-template-columns: repeat(3, minmax(20vh, 1fr));
     }
 }
 @media (max-width: 950px){
-    .category-grid {
+    #this-one .category-grid {
         grid-template-columns: repeat(2, minmax(20vh, 1fr));
     }
 }
 /*--------------------------------------------------------*/
 /* Desktop navigation */
 @media (min-width: 800px) {
-    .mobile-nav-container{
+    #this-one .mobile-nav-container{
         display: none;
     }
 
-    .desktop-nav-container{
+    #this-one .desktop-nav-container{
         margin: 0 17% 0 17%;
         display: flex;
     }
 
-    .desktop-nav-container img{
+    #this-one .desktop-nav-container img{
         margin-right: 50px;
         align-self: center;
         width: 20;
     }
 
-    header {    
+    #this-one header {    
         padding: 20px 0 20px 0;
     }
 
     /* Style the navigation bar */
-    header nav {
+    #this-one header nav {
         background-color: #5C8374 !important; 
         padding: 10px 0;
         width: 80%;
     }
 
     /* Style the navigation links */
-    header nav ul {
+    #this-one header nav ul {
         display: flex; 
         width: auto;
     }
 
-    header nav ul li {
+    #this-one header nav ul li {
         display: flex;
         justify-self: center;
         align-items: center;
@@ -246,7 +248,7 @@ a {
     }
 
     /* Style all links */
-    header nav ul li a {
+    #this-one header nav ul li a {
         color: #fff; 
         text-decoration: none;
         padding: 10px; 
@@ -255,22 +257,22 @@ a {
     }
 
     /* Change link color on hover */
-    header nav ul li a:hover {
+    #this-one header nav ul li a:hover {
         background-color: #2EBAA1 !important; /* Light green on hover */
     }    
 }
 /*--------------------------------------------------------*/
 /* Mobile navigation */
 @media (max-width: 799px) {
-    .mobile-nav-container {
+    #this-one .mobile-nav-container {
         display: block;
         margin: 10px;
     }
-    .desktop-nav-container {
+    #this-one .desktop-nav-container {
         display: none;
     }
 
-    .logo{
+    #this-one .logo{
         display: flex;
         justify-content: center; /* Horizontally center */
         align-items: center; /* Vertically center */
