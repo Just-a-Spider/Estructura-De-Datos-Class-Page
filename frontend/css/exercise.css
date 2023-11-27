@@ -11,12 +11,12 @@
 
 .snippet-toggle {
     text-align: left;
-    background-color: #183D3D;
+    background-color: #183D3D !important;
     margin-bottom: 0;
 }
 
 .snippet-toggle button {
-    background-color: #183D3D;
+    background-color: #183D3D !important;
     border: none;
     padding: 8px;
     margin: 0;
@@ -25,14 +25,14 @@
 }
 
 .snippet-toggle button.active {
-    background-color: rgb(28, 32, 35);
-    color: #93B1A6;
+    background-color: rgb(28, 32, 35) !important;
+    color: #93B1A6 !important;
 }
 
 .snippet {
-    border: 3px solid #93B1A6;
+    border: 3px solid #93B1A6 !important;
     padding: 0%;
-    background-color: #183D3D;
+    background-color: #183D3D !important;
     border-radius: 4px;
 }
 
