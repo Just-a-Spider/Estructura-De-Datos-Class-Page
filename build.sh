@@ -8,3 +8,4 @@ pip install -r requirements.txt
 # run the application
 python backend/manage.py makemigrations exercises 
 python backend/manage.py migrate
+python backend/manage.py loaddata whole.json
