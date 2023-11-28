@@ -154,13 +154,13 @@ a {
 .category-card h3{
     font-size: 110%;
     font-family: 'Dosis', sans-serif;
-    color: #fff;
+    color: #fff !important;
     margin: 10px 10px 2px 10px;
 }
 
 .category-card h1{
     font-size: 200%;
-    color: #fff;
+    color: #fff !important;
     margin: 15px 10px 2px 10px;
 }
 
