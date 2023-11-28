@@ -22,7 +22,7 @@ body{
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#this-one{
+main{
     padding: 20px;
     flex-grow: 1;
     border-top: solid 1em #5C8374 !important;
@@ -101,38 +101,38 @@ ul {
 
 
 /*-------------------------------------------------------*/
-#this-one h1, h2, h3, p{
+h1, h2, h3, p{
     color: #FFFFFF;
     margin-top: 0;
 }
 
-#this-one h1{
+h1{
     font-size: 180%;
     font-family: 'Ubuntu', sans-serif;
     color: #93B1A6 !important;
     margin-bottom: 20px;
 }
 
-#this-one h2{
+h2{
     font-size: 160%;
     font-family: 'Ubuntu', sans-serif;
     color: #93B1A6 !important;
 }
 
-#this-one h3{
+h3{
     font-size: 140%;
     font-family: 'Ubuntu', sans-serif;
     color: #93B1A6 !important;
 }
 
-#this-one p {
+p {
     font-size: 120%;
     font-family: 'Ubuntu', sans-serif;
     white-space: pre-line;
     text-align: justify;
     color: #FFFFFF !important;
 }
-#this-one a {
+a {
     text-decoration: none;
 }
 
@@ -151,26 +151,26 @@ ul {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#this-one .category-card h3{
+.category-card h3{
     font-size: 110%;
     font-family: 'Dosis', sans-serif;
     color: #fff;
     margin: 10px 10px 2px 10px;
 }
 
-#this-one .category-card h1{
+.category-card h1{
     font-size: 200%;
     color: #fff;
     margin: 15px 10px 2px 10px;
 }
 
-#this-one .category-card-ex h3{
+.category-card-ex h3{
     font-size: 100%;
     font-family: 'Dosis', sans-serif;
     color: #fff;
     margin: 10px 10px 2px 10px;
 }
-#this-one .category-card p{
+.category-card p{
     font-size: 80%;
     color: #fff;
     margin: 2px 10px 10px 10px;
