@@ -177,67 +177,67 @@ ul {
 }
 
 /* Add hover effect to cards */
-#this-one .category-card:hover {
+.category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#this-one .category-grid {
+.category-grid {
     display: grid;
     grid-template-rows: auto;
     grid-gap: 20px;
 }
 @media (min-width: 1400px){
-    #this-one .category-grid {
+    .category-grid {
         grid-template-columns: repeat(4, minmax(30vh, 1fr));
     }
 }
 @media (max-width: 1399px){
-    #this-one .category-grid {
+    .category-grid {
         grid-template-columns: repeat(3, minmax(20vh, 1fr));
     }
 }
 @media (max-width: 950px){
-    #this-one .category-grid {
+    .category-grid {
         grid-template-columns: repeat(2, minmax(20vh, 1fr));
     }
 }
 /*--------------------------------------------------------*/
 /* Desktop navigation */
 @media (min-width: 800px) {
-    #this-one .mobile-nav-container{
+    .mobile-nav-container{
         display: none;
     }
 
-    #this-one .desktop-nav-container{
+    .desktop-nav-container{
         margin: 0 17% 0 17%;
         display: flex;
     }
 
-    #this-one .desktop-nav-container img{
+    .desktop-nav-container img{
         margin-right: 50px;
         align-self: center;
         width: 20;
     }
 
-    #this-one header {    
+    header {    
         padding: 20px 0 20px 0;
     }
 
     /* Style the navigation bar */
-    #this-one header nav {
+    header nav {
         background-color: #5C8374 !important; 
         padding: 10px 0;
         width: 80%;
     }
 
     /* Style the navigation links */
-    #this-one header nav ul {
+    header nav ul {
         display: flex; 
         width: auto;
     }
 
-    #this-one header nav ul li {
+    header nav ul li {
         display: flex;
         justify-self: center;
         align-items: center;
@@ -246,7 +246,7 @@ ul {
     }
 
     /* Style all links */
-    #this-one header nav ul li a {
+    header nav ul li a {
         color: #fff; 
         text-decoration: none;
         padding: 10px; 
@@ -255,7 +255,7 @@ ul {
     }
 
     /* Change link color on hover */
-    #this-one header nav ul li a:hover {
+    header nav ul li a:hover {
         background-color: #2EBAA1 !important; /* Light green on hover */
     }    
 }
