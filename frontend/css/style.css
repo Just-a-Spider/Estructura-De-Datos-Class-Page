@@ -28,38 +28,6 @@ body{
     border-top: solid 1em #5C8374 !important;
 }
 
-#this-one h1, h2, h3, p{
-    color: #FFFFFF;
-    margin-top: 0;
-}
-
-#this-one h1{
-    font-size: 180%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-    margin-bottom: 20px;
-}
-
-#this-one h2{
-    font-size: 160%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-}
-
-#this-one h3{
-    font-size: 140%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #93B1A6 !important;
-}
-
-#this-one p {
-    font-size: 120%;
-    font-family: 'Ubuntu', sans-serif;
-    white-space: pre-line;
-    text-align: justify;
-    color: #FFFFFF !important;
-}
-
 footer {
     background-color: #5C8374;
     text-align: center;
@@ -133,7 +101,37 @@ ul {
 
 
 /*-------------------------------------------------------*/
+#this-one h1, h2, h3, p{
+    color: #FFFFFF;
+    margin-top: 0;
+}
 
+#this-one h1{
+    font-size: 180%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+    margin-bottom: 20px;
+}
+
+#this-one h2{
+    font-size: 160%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+}
+
+#this-one h3{
+    font-size: 140%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #93B1A6 !important;
+}
+
+#this-one p {
+    font-size: 120%;
+    font-family: 'Ubuntu', sans-serif;
+    white-space: pre-line;
+    text-align: justify;
+    color: #FFFFFF !important;
+}
 #this-one a {
     text-decoration: none;
 }
@@ -264,15 +262,15 @@ ul {
 /*--------------------------------------------------------*/
 /* Mobile navigation */
 @media (max-width: 799px) {
-    #this-one .mobile-nav-container {
+    .mobile-nav-container {
         display: block;
         margin: 10px;
     }
-    #this-one .desktop-nav-container {
+    .desktop-nav-container {
         display: none;
     }
 
-    #this-one .logo{
+    .logo{
         display: flex;
         justify-content: center; /* Horizontally center */
         align-items: center; /* Vertically center */
