@@ -10,7 +10,7 @@
 }
 
 .snippet-toggle {
-    text-align: left;
+    display: flex;
     background-color: #183D3D !important;
     margin-bottom: 0;
 }
@@ -40,14 +40,36 @@
     margin: 0;
 }
 
+#copyBtn{
+    margin-left: auto;
+}
+
 code{
     font-family: MonoCraft;
     font-weight: bolder;
-    font-size: 80%;
+    font-size: 0.9em;
     
 }
 
 iframe {
     height: 500px;
     border: none;
+}
+
+#notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.notification-visible {
+    opacity: 1 !important;
 }

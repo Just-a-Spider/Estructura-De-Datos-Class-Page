@@ -8,6 +8,7 @@
         {% endfor %}
     </ul>
 </div>
+<div id="notification" class="notification-hidden">Copiado!</div>
 <div class="exercise">
     <div class="snippet" id="codeSnippets">
         <div class="snippet-toggle">
@@ -16,6 +17,11 @@
             </button>
             <button id="pySnippetBtn">
                 <iconify-icon icon="fontisto:python" style="font-size: 30px;"></iconify-icon>
+            </button>
+            <button id="copyBtn">
+                <iconify-icon icon="mdi:content-copy" style="font-size: 30px;
+                                                color: aliceblue;">
+                </iconify-icon>
             </button>
         </div>
         <pre id="cppSnippet" class="active"><code class="language-cpp" id="cppCode">{{ exercise.cpp_snippet }}</code></pre>
