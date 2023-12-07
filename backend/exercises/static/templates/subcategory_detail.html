@@ -2,7 +2,7 @@
 {% block content %}
 <div class="categText">
     <h1>{{ subcategory.name }}</h1>
-    <p class="themeContext">{{ textCat }}</p>
+    <p class="themeContext">{{ textCat | safe }}</p>
     <ul class="steps">
         {% for item in steps %}
             <li>{{ item }}</li>
