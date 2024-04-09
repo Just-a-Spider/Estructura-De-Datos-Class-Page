@@ -23,9 +23,9 @@ python backend/manage.py loaddata whole.json
 python backend/manage.py runserver
 ```
 
-[!IMPORTANT]
-Para agregar más problemas crear un superuser
-```
-python backend/manage.py createsuperuser
-```
-Y manejarlo desde la página de admin
+>[!IMPORTANT]
+>Para agregar más problemas crear un superuser
+>```
+>python backend/manage.py createsuperuser
+>```
+>Y manejarlo desde la página de admin
