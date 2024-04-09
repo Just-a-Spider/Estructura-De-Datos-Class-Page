@@ -24,7 +24,7 @@ python backend/manage.py runserver
 ```
 
 >[!IMPORTANT]
->Para agregar más problemas crear un superuser
+>Para agregar más ejercicios, categorias and what not crear un superuser
 >```
 >python backend/manage.py createsuperuser
 >```
