@@ -1,6 +1,5 @@
 asgiref==3.7.2
 Django==4.2.11
 pexpect==4.8.0
-psycopg2==2.9.9
 ptyprocess==0.7.0
 sqlparse==0.4.4
